@@ -1,0 +1,31 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln
+*.suo
+*.userprefs
+*.sqlite
+
+# Node modules (por si usas Node.js)
+node_modules/
+
+# Archivos de logs
+*.log
+
+# Sistemas operativos
+.DS_Store
+Thumbs.db
+
+# Archivos temporales y de backup comunes
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+
+# Carpetas de producción / build (si las tuvieras)
+dist/
+build/
+out/
