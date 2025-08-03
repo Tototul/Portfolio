@@ -1,62 +1,244 @@
-<!-- contacto.html -->
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto – Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: { colors: { primary: '#4f46e5' } }
-      }
-    }
-  </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto – Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0f172a; /* bg-gray-900 */
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+        }
+
+        .bg-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px solid;
+            user-select: none;
+            will-change: transform;
+            opacity: 0.15;
+            transition: opacity 0.3s ease;
+            transform-origin: center center;
+        }
+
+            .shape:hover {
+                opacity: 0.6;
+            }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-color: #0ff;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid #f0f;
+            filter: drop-shadow(0 0 6px #f0f) drop-shadow(0 0 12px #f0f) drop-shadow(0 0 18px #f0f);
+        }
+
+        .square {
+            width: 35px;
+            height: 35px;
+            border-radius: 0;
+            border-color: #0f0;
+            filter: drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0) drop-shadow(0 0 18px #0f0);
+        }
+
+        .pentagon {
+            width: 0;
+            border-style: solid;
+            border-width: 0 20px 35px 20px;
+            border-color: transparent transparent #0ff transparent;
+            position: relative;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+            .pentagon::after {
+                content: "";
+                position: absolute;
+                top: 35px;
+                left: -20px;
+                width: 0;
+                border-style: solid;
+                border-width: 0 40px 20px 0;
+                border-color: transparent #0ff transparent transparent;
+                transform: rotate(-36deg);
+                filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+            }
+
+        .star {
+            color: #ff0;
+            font-size: 22px;
+            text-shadow: 0 0 6px #ff0, 0 0 12px #ff0, 0 0 18px #ffa500, 0 0 24px #ffa500;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white font-sans min-h-screen px-6 py-10">
-  <div class="max-w-3xl mx-auto">
-    <h1 class="text-4xl font-extrabold text-primary text-center mb-10">Contacto</h1>
-    <div class="mt-8 text-center">
+<body>
+
+    <div class="bg-container" id="bg"></div>
+
+    <div class="content-wrapper">
+        <h1 class="text-4xl font-extrabold text-primary mb-10" style="color:#4f46e5;">Contacto</h1>
+
         <p class="text-gray-300 mb-3">Podés escribirme a:</p>
         <a href="mailto:tultchinskytomas@gmail.com"
-           class="inline-flex items-center gap-2 bg-primary/50 text-white px-6 py-2 rounded-full font-semibold shadow-md hover:shadow-lg hover:bg-primary/70 transition transform hover:-translate-y-0.5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="2">
+           class="inline-flex items-center gap-2 bg-primary/50 text-white px-6 py-2 rounded-full font-semibold shadow-md hover:shadow-lg hover:bg-primary/70 transition transform hover:-translate-y-0.5" style="background-color: rgba(79, 70, 229, 0.5);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="2" style="stroke:white;">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 0v8a2 2 0 002 2h14a2 2 0 002-2V8" />
             </svg>
             tultchinskytomas@gmail.com
         </a>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-
-            <!-- Botón Discord -->
-            <a href="https://discord.com/users/1336309190716555357"
-               target="_blank"
-               class="px-6 py-3 bg-[#5865F2] text-white rounded-full font-medium hover:bg-[#4752c4] transition shadow-md flex items-center gap-2 justify-center">
-                <i class="fab fa-discord"></i> Discord
+            <a href="https://discord.com/users/1336309190716555357" target="_blank"
+               class="bg-[#5865F2] hover:bg-[#4752c4] text-white font-medium py-2 px-6 rounded-xl flex items-center gap-2 transition duration-300 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white" viewBox="0 0 24 24">
+                    <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037c-.21.372-.444.86-.608 1.24a18.384 18.384 0 0 0-5.487 0 12.51 12.51 0 0 0-.617-1.24.077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.033.027C.533 9.042-.32 13.579.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.039.078.078 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.041-.104 13.19 13.19 0 0 1-1.882-.9.077.077 0 0 1-.008-.129c.127-.097.254-.199.375-.3a.074.074 0 0 1 .077-.01c3.927 1.797 8.18 1.797 12.061 0a.075.075 0 0 1 .078.01c.12.101.248.203.376.3a.077.077 0 0 1-.007.129 12.574 12.574 0 0 1-1.883.9.076.076 0 0 0-.04.105c.36.698.771 1.364 1.225 1.993a.078.078 0 0 0 .084.028 19.89 19.89 0 0 0 6.002-3.039.077.077 0 0 0 .03-.055c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.034-.028zM8.02 15.331c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.956-2.418 2.156-2.418 1.21 0 2.173 1.094 2.156 2.418 0 1.334-.956 2.419-2.156 2.419zm7.974 0c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.956-2.418 2.156-2.418 1.21 0 2.174 1.094 2.157 2.418 0 1.334-.947 2.419-2.157 2.419z" />
+                </svg>
+                Discord
             </a>
 
-            <!-- Botón LinkedIn -->
-            <a href="https://www.linkedin.com/in/tomas-tultchinsky-5a98732ba/"
-               target="_blank"
-               class="px-6 py-3 bg-[#0A66C2] text-white rounded-full font-medium hover:bg-[#004182] transition shadow-md flex items-center gap-2 justify-center">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
+            <a href="https://www.linkedin.com/in/tomas-tultchinsky-5a98732ba/" target="_blank"
+               class="bg-[#0077B5] hover:bg-[#005983] text-white font-medium py-2 px-6 rounded-xl flex items-center gap-2 transition duration-300 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.238-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.338-.026-3.063-1.867-3.063-1.868 0-2.154 1.46-2.154 2.968v5.699h-3v-10h2.879v1.366h.041c.401-.759 1.379-1.558 2.837-1.558 3.032 0 3.593 1.996 3.593 4.59v5.602z" />
+                </svg>
+                LinkedIn
             </a>
+        </div>
 
+        <div class="text-center mt-12">
+            <a href="index.html"
+               class="inline-block px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-indigo-600 transition shadow-lg" style="background-color: #4f46e5;">
+                ← Volver al inicio
+            </a>
         </div>
     </div>
 
-    <!-- Botón volver -->
-    <div class="text-center mt-12">
-      <a href="index.html"
-         class="inline-block px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-indigo-600 transition shadow-lg">
-        ← Volver al inicio
-      </a>
-    </div>
-  </div>
+    <script>
+        const shapes = ['circle', 'triangle', 'square', 'pentagon', 'star'];
+        const container = document.getElementById('bg');
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/63d39766e4.js" crossorigin="anonymous"></script>
+        const shapeElements = [];
+
+        // Creamos 80 figuras en total para cubrir toda la pantalla
+        for (let i = 0; i < 80; i++) {
+            const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+            let el;
+
+            if (shapeType === 'star') {
+                el = document.createElement('div');
+                el.className = 'shape star';
+                el.innerText = '★';
+            } else {
+                el = document.createElement('div');
+                el.className = `shape ${shapeType}`;
+            }
+
+            el.style.top = `${Math.random() * 100}vh`;
+            el.style.left = `${Math.random() * 100}vw`;
+            el.style.opacity = 0.1 + Math.random() * 0.3;
+            el.style.transformOrigin = 'center center';
+
+            // Varios tamaños para dar profundidad
+            const scale = 0.5 + Math.random() * 1.0;
+
+            // Agregamos drop shadows intensos para neón más visible
+            switch (shapeType) {
+                case 'circle':
+                    el.style.filter = 'drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff)';
+                    break;
+                case 'triangle':
+                    el.style.filter = 'drop-shadow(0 0 6px #f0f) drop-shadow(0 0 12px #f0f) drop-shadow(0 0 18px #f0f)';
+                    break;
+                case 'square':
+                    el.style.filter = 'drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0) drop-shadow(0 0 18px #0f0)';
+                    break;
+                case 'pentagon':
+                    el.style.filter = 'drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff)';
+                    break;
+                case 'star':
+                    el.style.textShadow = '0 0 6px #ff0, 0 0 12px #ff0, 0 0 18px #ffa500, 0 0 24px #ffa500';
+                    break;
+            }
+
+            container.appendChild(el);
+            shapeElements.push({
+                el,
+                baseX: parseFloat(el.style.left),
+                baseY: parseFloat(el.style.top),
+                factorX: (Math.random() - 0.5) * 15,
+                factorY: (Math.random() - 0.5) * 15,
+                rotateFactor: (Math.random() - 0.5) * 15,
+                scale
+            });
+        }
+
+        let mouseX = 0.5;
+        let mouseY = 0.5;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX / window.innerWidth;
+            mouseY = e.clientY / window.innerHeight;
+        });
+
+        function lerp(start, end, t) {
+            return start + (end - start) * t;
+        }
+
+        function animate() {
+            shapeElements.forEach((shape) => {
+                const targetX = shape.baseX + (mouseX - 0.5) * shape.factorX;
+                const targetY = shape.baseY + (mouseY - 0.5) * shape.factorY;
+
+                if (!shape.currentX) shape.currentX = targetX;
+                if (!shape.currentY) shape.currentY = targetY;
+                if (!shape.currentRotate) shape.currentRotate = 0;
+
+                shape.currentX = lerp(shape.currentX, targetX, 0.07);
+                shape.currentY = lerp(shape.currentY, targetY, 0.07);
+                shape.currentRotate = lerp(shape.currentRotate, shape.rotateFactor * (mouseX - 0.5) * 15, 0.07);
+
+                shape.el.style.transform = `translate(${shape.currentX}vw, ${shape.currentY}vh) rotate(${shape.currentRotate}deg) scale(${shape.scale})`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
 </body>
 </html>

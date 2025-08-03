@@ -18,8 +18,101 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <style>
+        /* Fondo dinámico neón */
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #0f172a; /* bg-gray-900 */
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .bg-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px solid;
+            user-select: none;
+            will-change: transform;
+            opacity: 0.15;
+            transition: opacity 0.3s ease;
+            transform-origin: center center;
+        }
+
+            .shape:hover {
+                opacity: 0.6;
+            }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-color: #0ff;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid #f0f;
+            filter: drop-shadow(0 0 6px #f0f) drop-shadow(0 0 12px #f0f) drop-shadow(0 0 18px #f0f);
+        }
+
+        .square {
+            width: 35px;
+            height: 35px;
+            border-radius: 0;
+            border-color: #0f0;
+            filter: drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0) drop-shadow(0 0 18px #0f0);
+        }
+
+        .pentagon {
+            width: 0;
+            border-style: solid;
+            border-width: 0 20px 35px 20px;
+            border-color: transparent transparent #0ff transparent;
+            position: relative;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+            .pentagon::after {
+                content: "";
+                position: absolute;
+                top: 35px;
+                left: -20px;
+                width: 0;
+                border-style: solid;
+                border-width: 0 40px 20px 0;
+                border-color: transparent #0ff transparent transparent;
+                transform: rotate(-36deg);
+                filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+            }
+
+        .star {
+            color: #ff0;
+            font-size: 22px;
+            text-shadow: 0 0 6px #ff0, 0 0 12px #ff0, 0 0 18px #ffa500, 0 0 24px #ffa500;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white font-sans min-h-screen px-6 py-10">
+
+    <div class="bg-container" id="bg"></div>
+
     <div class="max-w-5xl mx-auto">
         <h1 class="text-4xl font-extrabold mb-10 text-center text-primary">Proyectos</h1>
 
@@ -27,7 +120,7 @@
 
             <!-- FDph -->
             <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300">
-                <h2 class="text-xl font-semibold mb-3 text-primary">FDph</h2>
+                <h2 class="text-xl font-semibold mb-2 text-primary">FDph</h2>
                 <p class="text-gray-300 mb-3">Desarrollo de un e-commerce para fotógrafos que incluye:</p>
                 <ul class="text-gray-400 list-disc pl-5 space-y-1 text-sm mb-4">
                     <li>Catálogo organizado por evento y fotógrafo</li>
@@ -37,10 +130,9 @@
                     <li>Carrito de compras funcional</li>
                     <li>Sugerencias automáticas de cuadros</li>
                 </ul>
-                <p class="text-sm italic text-gray-500">URL próximamente</p>
+                <p class="text-sm italic text-gray-500 mb-4">URL próximamente</p>
 
-                <!-- Tecnologías FDph -->
-                <p class="text-sm font-semibold text-gray-400 mb-2 mt-4">Tecnologías utilizadas:</p>
+                <p class="text-sm font-semibold text-gray-400 mb-2">Stack utilizado:</p>
                 <div class="flex flex-wrap gap-3 text-sm text-white mt-2">
                     <span title="Lenguaje C#" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
                         <i class="devicon-csharp-plain colored text-xl"></i> C#
@@ -73,23 +165,17 @@
             </div>
 
             <!-- Digip -->
-            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 relative overflow-hidden">
-                <div class="flex items-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17l.45 1.6a1 1 0 001.9 0L12.75 17m1.42-5.1a3.5 3.5 0 11-4.34-4.34 3.5 3.5 0 014.34 4.34zM12 2a10 10 0 100 20 10 10 0 000-20z" />
-                    </svg>
-                    <h2 class="text-xl font-semibold">Digip</h2>
-                </div>
-                <p class="text-gray-300 mb-2">Trabajo actual como Full Stack Developer. Participación en desarrollo de productos digitales, consumo de APIs, mantenimiento de frontend y backend.</p>
-                <p class="text-sm text-gray-400 mb-4">Tecnologías: Blazor · C# · Entity Framework · SQL · Git</p>
+            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300">
+                <h2 class="text-xl font-semibold mb-2 text-primary">Digip</h2>
+                <p class="text-gray-300 mb-3">Trabajo actual como Full Stack Developer. Participación en desarrollo de productos digitales, consumo de APIs, mantenimiento de frontend y backend.</p>
+                <p class="text-sm italic text-gray-500 mb-4">Tecnologías usadas: Blazor · C# · Entity Framework · SQL · Git</p>
 
                 <!-- Imagen centrada -->
-                <div class="overflow-hidden rounded-lg">
+                <div class="overflow-hidden rounded-lg mb-4">
                     <img src="assets/img/digip1.png" alt="Digip" class="mx-auto w-64 h-auto transition-transform duration-500 hover:scale-105" />
                 </div>
 
-                <!-- Tecnologías Digip -->
-                <p class="text-sm font-semibold text-gray-400 mb-2 mt-4">Stack utilizado:</p>
+                <p class="text-sm font-semibold text-gray-400 mb-2">Stack utilizado:</p>
                 <div class="flex flex-wrap gap-3 text-sm text-white mt-2">
                     <span title="Lenguaje C#" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
                         <i class="devicon-csharp-plain colored text-xl"></i> C#
@@ -109,14 +195,68 @@
                 </div>
             </div>
 
+
+            <!-- Botón volver -->
+            <div class="text-center mt-12">
+                <a href="index.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-indigo-600 transition shadow-lg">
+                    ← Volver al inicio
+                </a>
+            </div>
         </div>
 
-        <!-- Botón volver -->
-        <div class="text-center mt-12">
-            <a href="index.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-indigo-600 transition shadow-lg">
-                ← Volver al inicio
-            </a>
-        </div>
-    </div>
+    <script>
+        const shapes = ['circle', 'triangle', 'square', 'pentagon', 'star'];
+        const container = document.getElementById('bg');
+
+        const shapeElements = [];
+
+        for (let i = 0; i < 80; i++) {
+            const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+            let el;
+
+            if (shapeType === 'star') {
+                el = document.createElement('div');
+                el.className = 'shape star';
+                el.innerText = '★';
+            } else {
+                el = document.createElement('div');
+                el.className = `shape ${shapeType}`;
+            }
+
+            el.style.top = `${Math.random() * 100}vh`;
+            el.style.left = `${Math.random() * 100}vw`;
+            // Random scale between 0.5 and 1.5
+            const scale = 0.5 + Math.random();
+            el.style.transform = `scale(${scale})`;
+
+            container.appendChild(el);
+            shapeElements.push({ el, scale, type: shapeType });
+        }
+
+        // Movimiento suave según mouse (parallax-like)
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            shapeElements.forEach(({ el, scale, type }, i) => {
+                const factor = (i + 1) / shapeElements.length;
+                const offsetX = (mouseX - centerX) * 0.02 * factor;
+                const offsetY = (mouseY - centerY) * 0.02 * factor;
+
+                el.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Conocimientos – Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,9 +17,101 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <style>
+        /* Fondo dinámico neón */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0f172a; /* bg-gray-900 */
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .bg-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px solid;
+            user-select: none;
+            will-change: transform;
+            opacity: 0.15;
+            transition: opacity 0.3s ease;
+            transform-origin: center center;
+        }
+
+            .shape:hover {
+                opacity: 0.6;
+            }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-color: #0ff;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid #f0f;
+            filter: drop-shadow(0 0 6px #f0f) drop-shadow(0 0 12px #f0f) drop-shadow(0 0 18px #f0f);
+        }
+
+        .square {
+            width: 35px;
+            height: 35px;
+            border-radius: 0;
+            border-color: #0f0;
+            filter: drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0) drop-shadow(0 0 18px #0f0);
+        }
+
+        .pentagon {
+            width: 0;
+            border-style: solid;
+            border-width: 0 20px 35px 20px;
+            border-color: transparent transparent #0ff transparent;
+            position: relative;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+            .pentagon::after {
+                content: "";
+                position: absolute;
+                top: 35px;
+                left: -20px;
+                width: 0;
+                border-style: solid;
+                border-width: 0 40px 20px 0;
+                border-color: transparent #0ff transparent transparent;
+                transform: rotate(-36deg);
+                filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+            }
+
+        .star {
+            color: #ff0;
+            font-size: 22px;
+            text-shadow: 0 0 6px #ff0, 0 0 12px #ff0, 0 0 18px #ffa500, 0 0 24px #ffa500;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white font-sans p-6">
+
+    <div class="bg-container" id="bg"></div>
+
     <div class="max-w-5xl mx-auto">
         <h1 class="text-4xl font-extrabold text-primary mb-10 text-center">Conocimientos</h1>
 
@@ -107,5 +199,96 @@
             </a>
         </div>
     </div>
+
+    <script>
+        const shapes = ['circle', 'triangle', 'square', 'pentagon', 'star'];
+        const container = document.getElementById('bg');
+
+        const shapeElements = [];
+
+        for (let i = 0; i < 80; i++) {
+            const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+            let el;
+
+            if (shapeType === 'star') {
+                el = document.createElement('div');
+                el.className = 'shape star';
+                el.innerText = '★';
+            } else {
+                el = document.createElement('div');
+                el.className = `shape ${shapeType}`;
+            }
+
+            el.style.top = `${Math.random() * 100}vh`;
+            el.style.left = `${Math.random() * 100}vw`;
+            el.style.opacity = 0.1 + Math.random() * 0.3;
+            el.style.transformOrigin = 'center center';
+
+            const scale = 0.5 + Math.random() * 1.0;
+
+            switch (shapeType) {
+                case 'circle':
+                    el.style.filter = 'drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff)';
+                    break;
+                case 'triangle':
+                    el.style.filter = 'drop-shadow(0 0 6px #f0f) drop-shadow(0 0 12px #f0f) drop-shadow(0 0 18px #f0f)';
+                    break;
+                case 'square':
+                    el.style.filter = 'drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0) drop-shadow(0 0 18px #0f0)';
+                    break;
+                case 'pentagon':
+                    el.style.filter = 'drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff)';
+                    break;
+                case 'star':
+                    el.style.textShadow = '0 0 6px #ff0, 0 0 12px #ff0, 0 0 18px #ffa500, 0 0 24px #ffa500';
+                    break;
+            }
+
+            container.appendChild(el);
+            shapeElements.push({
+                el,
+                baseX: parseFloat(el.style.left),
+                baseY: parseFloat(el.style.top),
+                factorX: (Math.random() - 0.5) * 15,
+                factorY: (Math.random() - 0.5) * 15,
+                rotateFactor: (Math.random() - 0.5) * 15,
+                scale
+            });
+        }
+
+        let mouseX = 0.5;
+        let mouseY = 0.5;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX / window.innerWidth;
+            mouseY = e.clientY / window.innerHeight;
+        });
+
+        function lerp(start, end, t) {
+            return start + (end - start) * t;
+        }
+
+        function animate() {
+            shapeElements.forEach((shape) => {
+                const targetX = shape.baseX + (mouseX - 0.5) * shape.factorX;
+                const targetY = shape.baseY + (mouseY - 0.5) * shape.factorY;
+
+                if (!shape.currentX) shape.currentX = targetX;
+                if (!shape.currentY) shape.currentY = targetY;
+                if (!shape.currentRotate) shape.currentRotate = 0;
+
+                shape.currentX = lerp(shape.currentX, targetX, 0.07);
+                shape.currentY = lerp(shape.currentY, targetY, 0.07);
+                shape.currentRotate = lerp(shape.currentRotate, shape.rotateFactor * (mouseX - 0.5) * 15, 0.07);
+
+                shape.el.style.transform = `translate(${shape.currentX}vw, ${shape.currentY}vh) rotate(${shape.currentRotate}deg) scale(${shape.scale})`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
 </body>
 </html>

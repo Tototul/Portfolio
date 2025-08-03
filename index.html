@@ -17,8 +17,100 @@
             }
         };
     </script>
+    <style>
+        /* Fondo dinámico neón */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0f172a; /* bg-gray-900 */
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .bg-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px solid;
+            user-select: none;
+            will-change: transform;
+            opacity: 0.15;
+            transition: opacity 0.3s ease;
+            transform-origin: center center;
+        }
+
+            .shape:hover {
+                opacity: 0.6;
+            }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-color: #0ff;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid #f0f;
+            filter: drop-shadow(0 0 6px #f0f) drop-shadow(0 0 12px #f0f) drop-shadow(0 0 18px #f0f);
+        }
+
+        .square {
+            width: 35px;
+            height: 35px;
+            border-radius: 0;
+            border-color: #0f0;
+            filter: drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0) drop-shadow(0 0 18px #0f0);
+        }
+
+        .pentagon {
+            width: 0;
+            border-style: solid;
+            border-width: 0 20px 35px 20px;
+            border-color: transparent transparent #0ff transparent;
+            position: relative;
+            filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+        }
+
+            .pentagon::after {
+                content: "";
+                position: absolute;
+                top: 35px;
+                left: -20px;
+                width: 0;
+                border-style: solid;
+                border-width: 0 40px 20px 0;
+                border-color: transparent #0ff transparent transparent;
+                transform: rotate(-36deg);
+                filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff) drop-shadow(0 0 18px #0ff);
+            }
+
+        .star {
+            color: #ff0;
+            font-size: 22px;
+            text-shadow: 0 0 6px #ff0, 0 0 12px #ff0, 0 0 18px #ffa500, 0 0 24px #ffa500;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
+
+    <div class="bg-container" id="bg"></div>
+
     <div class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-8 space-y-6">
 
         <!-- Foto -->
@@ -82,6 +174,7 @@
                 </li>
             </ul>
         </div>
+
         <!-- Redes sociales -->
         <div class="flex flex-col sm:flex-row gap-4 mt-8">
             <!-- LinkedIn -->
@@ -94,17 +187,73 @@
             </a>
 
             <!-- Discord -->
-            <button onclick="navigator.clipboard.writeText('1336309190716555357'); alert('ID de Discord copiado al portapapeles.')"
-                    class="bg-[#5865F2] hover:bg-[#4752c4] text-white font-medium py-2 px-6 rounded-xl flex items-center gap-2 transition duration-300 shadow-md">
+            <a href="https://discord.com/users/1336309190716555357"
+               target="_blank"
+               class="bg-[#5865F2] hover:bg-[#4752c4] text-white font-medium py-2 px-6 rounded-xl flex items-center gap-2 transition duration-300 shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white" viewBox="0 0 24 24">
                     <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037c-.21.372-.444.86-.608 1.24a18.384 18.384 0 0 0-5.487 0 12.51 12.51 0 0 0-.617-1.24.077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.033.027C.533 9.042-.32 13.579.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.039.078.078 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.041-.104 13.19 13.19 0 0 1-1.882-.9.077.077 0 0 1-.008-.129c.127-.097.254-.199.375-.3a.074.074 0 0 1 .077-.01c3.927 1.797 8.18 1.797 12.061 0a.075.075 0 0 1 .078.01c.12.101.248.203.376.3a.077.077 0 0 1-.007.129 12.574 12.574 0 0 1-1.883.9.076.076 0 0 0-.04.105c.36.698.771 1.364 1.225 1.993a.078.078 0 0 0 .084.028 19.89 19.89 0 0 0 6.002-3.039.077.077 0 0 0 .03-.055c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.034-.028zM8.02 15.331c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.956-2.418 2.156-2.418 1.21 0 2.173 1.094 2.156 2.418 0 1.334-.956 2.419-2.156 2.419zm7.974 0c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.956-2.418 2.156-2.418 1.21 0 2.174 1.094 2.157 2.418 0 1.334-.947 2.419-2.157 2.419z" />
                 </svg>
                 Discord
-            </button>
+            </a>
         </div>
-
 
         <footer class="text-xs text-gray-600 mt-8">© Tomas Tultchinsky - 2025</footer>
     </div>
+
+    <script>
+        const shapes = ['circle', 'triangle', 'square', 'pentagon', 'star'];
+        const container = document.getElementById('bg');
+
+        const shapeElements = [];
+
+        for (let i = 0; i < 80; i++) {
+            const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+            let el;
+
+            if (shapeType === 'star') {
+                el = document.createElement('div');
+                el.className = 'shape star';
+                el.innerText = '★';
+            } else {
+                el = document.createElement('div');
+                el.className = `shape ${shapeType}`;
+            }
+
+            el.style.top = `${Math.random() * 100}vh`;
+            el.style.left = `${Math.random() * 100}vw`;
+            // Random scale between 0.5 and 1.5
+            const scale = 0.5 + Math.random();
+            el.style.transform = `scale(${scale})`;
+
+            container.appendChild(el);
+            shapeElements.push({ el, scale, type: shapeType });
+        }
+
+        // Movimiento suave según mouse (parallax-like)
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            shapeElements.forEach(({ el, scale, type }, i) => {
+                // Modificar la velocidad y dirección según tipo para variar el movimiento
+                const factor = (i + 1) / shapeElements.length;
+                const offsetX = (mouseX - centerX) * 0.02 * factor;
+                const offsetY = (mouseY - centerY) * 0.02 * factor;
+
+                el.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
