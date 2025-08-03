@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conocimientos – Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans p-6">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-primary mb-10 text-center">Conocimientos</h1>
+
+        <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg space-y-6">
+
+            <!-- Lenguajes -->
+            <div>
+                <h2 class="text-xl font-semibold text-white mb-2">Lenguajes de Programación</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-csharp-plain colored text-xl"></i> C# <span class="text-xs text-gray-300">(Avanzado)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-javascript-plain colored text-xl"></i> JavaScript <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-html5-plain colored text-xl"></i> HTML <span class="text-xs text-gray-300">(Avanzado)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-css3-plain colored text-xl"></i> CSS <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Frameworks y Librerías -->
+            <div>
+                <h2 class="text-xl font-semibold text-white mb-2">Frameworks y Librerías</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> Blazor Server <span class="text-xs text-gray-300">(Avanzado)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> Entity Framework <span class="text-xs text-gray-300">(Avanzado)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> MediatR <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-tailwindcss-plain colored text-xl"></i> Tailwind CSS <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Base de Datos -->
+            <div>
+                <h2 class="text-xl font-semibold text-white mb-2">Bases de Datos</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-microsoftsqlserver-plain colored text-xl"></i> SQL Server <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Herramientas -->
+            <div>
+                <h2 class="text-xl font-semibold text-white mb-2">Herramientas</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-git-plain colored text-xl"></i> Git <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-github-original colored text-xl"></i> GitHub <span class="text-xs text-gray-300">(Intermedio)</span>
+                    </span>
+                    <span class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-bitbucket-original colored text-xl"></i> Bitbucket <span class="text-xs text-gray-300">(Básico)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Metodologías -->
+            <div>
+                <h2 class="text-xl font-semibold text-white mb-2">Metodologías / Patrones</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-primary/20 px-3 py-1 rounded-full">CQRS <span class="text-xs text-gray-300">(Intermedio)</span></span>
+                    <span class="bg-primary/20 px-3 py-1 rounded-full">Clean Architecture <span class="text-xs text-gray-300">(Intermedio)</span></span>
+                    <span class="bg-primary/20 px-3 py-1 rounded-full">MVC <span class="text-xs text-gray-300">(Intermedio)</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón volver -->
+        <div class="text-center mt-12">
+            <a href="index.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-indigo-600 transition shadow-lg">
+                ← Volver al inicio
+            </a>
+        </div>
+    </div>
+</body>
+</html>

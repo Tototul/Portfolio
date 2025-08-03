@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos – Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans min-h-screen px-6 py-10">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-4xl font-extrabold mb-10 text-center text-primary">Proyectos</h1>
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+            <!-- FDph -->
+            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300">
+                <h2 class="text-xl font-semibold mb-3 text-primary">FDph</h2>
+                <p class="text-gray-300 mb-3">Desarrollo de un e-commerce para fotógrafos que incluye:</p>
+                <ul class="text-gray-400 list-disc pl-5 space-y-1 text-sm mb-4">
+                    <li>Catálogo organizado por evento y fotógrafo</li>
+                    <li>Marca de agua para proteger imágenes</li>
+                    <li>Detector de capturas de pantalla</li>
+                    <li>Descarga en alta calidad tras pago</li>
+                    <li>Carrito de compras funcional</li>
+                    <li>Sugerencias automáticas de cuadros</li>
+                </ul>
+                <p class="text-sm italic text-gray-500">URL próximamente</p>
+
+                <!-- Tecnologías FDph -->
+                <p class="text-sm font-semibold text-gray-400 mb-2 mt-4">Tecnologías utilizadas:</p>
+                <div class="flex flex-wrap gap-3 text-sm text-white mt-2">
+                    <span title="Lenguaje C#" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-csharp-plain colored text-xl"></i> C#
+                    </span>
+                    <span title="Framework Blazor Server" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> Blazor Server
+                    </span>
+                    <span title="Entity Framework ORM" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> Entity Framework
+                    </span>
+                    <span title="SQL Server" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-microsoftsqlserver-plain colored text-xl"></i> SQL Server
+                    </span>
+                    <span title="Lenguaje JavaScript" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-javascript-plain colored text-xl"></i> JavaScript
+                    </span>
+                    <span title="Lenguaje HTML" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-html5-plain colored text-xl"></i> HTML
+                    </span>
+                    <span title="Estilos CSS" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-css3-plain colored text-xl"></i> CSS
+                    </span>
+                    <span title="Control de versiones Git" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-git-plain colored text-xl"></i> Git
+                    </span>
+                    <span title="Repositorio GitHub" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-github-original colored text-xl"></i> GitHub
+                    </span>
+                </div>
+            </div>
+
+            <!-- Digip -->
+            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 relative overflow-hidden">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17l.45 1.6a1 1 0 001.9 0L12.75 17m1.42-5.1a3.5 3.5 0 11-4.34-4.34 3.5 3.5 0 014.34 4.34zM12 2a10 10 0 100 20 10 10 0 000-20z" />
+                    </svg>
+                    <h2 class="text-xl font-semibold">Digip</h2>
+                </div>
+                <p class="text-gray-300 mb-2">Trabajo actual como Full Stack Developer. Participación en desarrollo de productos digitales, consumo de APIs, mantenimiento de frontend y backend.</p>
+                <p class="text-sm text-gray-400 mb-4">Tecnologías: Blazor · C# · Entity Framework · SQL · Git</p>
+
+                <!-- Imagen centrada -->
+                <div class="overflow-hidden rounded-lg">
+                    <img src="assets/img/digip1.png" alt="Digip" class="mx-auto w-64 h-auto transition-transform duration-500 hover:scale-105" />
+                </div>
+
+                <!-- Tecnologías Digip -->
+                <p class="text-sm font-semibold text-gray-400 mb-2 mt-4">Stack utilizado:</p>
+                <div class="flex flex-wrap gap-3 text-sm text-white mt-2">
+                    <span title="Lenguaje C#" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-csharp-plain colored text-xl"></i> C#
+                    </span>
+                    <span title="Framework Blazor" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> Blazor
+                    </span>
+                    <span title="Entity Framework ORM" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-dotnetcore-plain colored text-xl"></i> Entity Framework
+                    </span>
+                    <span title="Base de datos SQL Server" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-microsoftsqlserver-plain colored text-xl"></i> SQL Server
+                    </span>
+                    <span title="Control de versiones Git" class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full">
+                        <i class="devicon-git-plain colored text-xl"></i> Git
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón volver -->
+        <div class="text-center mt-12">
+            <a href="index.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-indigo-600 transition shadow-lg">
+                ← Volver al inicio
+            </a>
+        </div>
+    </div>
+</body>
+</html>

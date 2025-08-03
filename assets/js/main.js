@@ -1,0 +1,1 @@
+// JS para toggle de modo oscuro u otros scripts futuros

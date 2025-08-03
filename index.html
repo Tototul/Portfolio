@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5'
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-8 space-y-6">
+
+        <!-- Foto -->
+        <img src="assets/img/foto_perfil.jpg" alt="Foto de Tomas" class="w-32 h-32 rounded-full object-cover border-2 border-gray-700 shadow">
+
+        <!-- Nombre y título -->
+        <div>
+            <h1 class="text-5xl font-extrabold mb-2 tracking-tight text-primary">Tomas Tultchinsky</h1>
+            <p class="text-gray-400 text-lg">Desarrollador Web Full Stack</p>
+        </div>
+
+        <!-- Botones con estilo de tarjetas -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl px-4">
+            <!-- Proyectos -->
+            <a href="proyectos.html" class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:scale-105 transition transform duration-300 hover:shadow-lg">
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 0a2 2 0 100-4H7a2 2 0 100 4h10zm-1 4a1 1 0 001-1v-4a1 1 0 10-2 0v4a1 1 0 001 1z" />
+                    </svg>
+                    <h2 class="text-lg font-semibold">Proyectos</h2>
+                </div>
+            </a>
+
+            <!-- Conocimientos -->
+            <a href="conocimientos.html" class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:scale-105 transition transform duration-300 hover:shadow-lg">
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2M6 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                    </svg>
+                    <h2 class="text-lg font-semibold">Conocimientos</h2>
+                </div>
+            </a>
+
+            <!-- Contacto -->
+            <a href="contacto.html" class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:scale-105 transition transform duration-300 hover:shadow-lg">
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 01-8 0m8 0a4 4 0 00-8 0m8 0a4 4 0 01-8 0M3 8h18M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8" />
+                    </svg>
+                    <h2 class="text-lg font-semibold">Contacto</h2>
+                </div>
+            </a>
+        </div>
+
+        <!-- Descripción -->
+        <div class="max-w-xl text-sm text-gray-300 mt-6 leading-relaxed px-4 space-y-4">
+            <p>👋 ¡Hola! Soy Tomas Tultchinsky, desarrollador web full-stack con una fuerte orientación a construir soluciones simples, funcionales y bien pensadas.</p>
+
+            <ul class="list-disc pl-5 space-y-2">
+                <li>
+                    💻 Me especializo en desarrollo con tecnologías como C# y Blazor, trabajando con enfoques como arquitectura limpia y CQRS para lograr código ordenado y escalable.
+                </li>
+                <li>
+                    🚀 Actualmente estoy desarrollando proyectos propios y colaborando en soluciones que combinan una buena experiencia de usuario con una lógica robusta del lado del servidor.
+                </li>
+                <li>
+                    🎯 Tengo un interés constante en mejorar mi lógica, aprender nuevas tecnologías y construir productos que realmente aporten valor.
+                </li>
+                <li>
+                    📫 Si querés contactarme o trabajar en algo juntos, estoy abierto a propuestas e ideas con impacto.
+                </li>
+            </ul>
+        </div>
+        <!-- Redes sociales -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/tomas-tultchinsky-5a98732ba/" target="_blank"
+               class="bg-[#0077B5] hover:bg-[#005983] text-white font-medium py-2 px-6 rounded-xl flex items-center gap-2 transition duration-300 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.238-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.338-.026-3.063-1.867-3.063-1.868 0-2.154 1.46-2.154 2.968v5.699h-3v-10h2.879v1.366h.041c.401-.759 1.379-1.558 2.837-1.558 3.032 0 3.593 1.996 3.593 4.59v5.602z" />
+                </svg>
+                LinkedIn
+            </a>
+
+            <!-- Discord -->
+            <button onclick="navigator.clipboard.writeText('1336309190716555357'); alert('ID de Discord copiado al portapapeles.')"
+                    class="bg-[#5865F2] hover:bg-[#4752c4] text-white font-medium py-2 px-6 rounded-xl flex items-center gap-2 transition duration-300 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white" viewBox="0 0 24 24">
+                    <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037c-.21.372-.444.86-.608 1.24a18.384 18.384 0 0 0-5.487 0 12.51 12.51 0 0 0-.617-1.24.077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.033.027C.533 9.042-.32 13.579.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.039.078.078 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.041-.104 13.19 13.19 0 0 1-1.882-.9.077.077 0 0 1-.008-.129c.127-.097.254-.199.375-.3a.074.074 0 0 1 .077-.01c3.927 1.797 8.18 1.797 12.061 0a.075.075 0 0 1 .078.01c.12.101.248.203.376.3a.077.077 0 0 1-.007.129 12.574 12.574 0 0 1-1.883.9.076.076 0 0 0-.04.105c.36.698.771 1.364 1.225 1.993a.078.078 0 0 0 .084.028 19.89 19.89 0 0 0 6.002-3.039.077.077 0 0 0 .03-.055c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.034-.028zM8.02 15.331c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.956-2.418 2.156-2.418 1.21 0 2.173 1.094 2.156 2.418 0 1.334-.956 2.419-2.156 2.419zm7.974 0c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.956-2.418 2.156-2.418 1.21 0 2.174 1.094 2.157 2.418 0 1.334-.947 2.419-2.157 2.419z" />
+                </svg>
+                Discord
+            </button>
+        </div>
+
+
+        <footer class="text-xs text-gray-600 mt-8">© Tomas Tultchinsky - 2025</footer>
+    </div>
+</body>
+</html>
